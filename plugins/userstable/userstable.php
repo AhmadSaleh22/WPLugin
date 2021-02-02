@@ -12,7 +12,7 @@
     License : GPLv2 or later
     Text Domain : userstable
     */
-    
+
     /*
     This program is free software; you can redistribute it and/or
     modify it under the terms of the GNU General Public License
@@ -27,4 +27,16 @@
     You should have received a copy of the GNU General Public License
     along with this program; if not, write to the Free Software
     Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
+
+    Copyright 2005-2015 Automatic, Inc.
     */
+
+defined('ABSPATH') or die('Hi this Page is Secured please try to define your Identity');
+
+class UserTablePlugin{
+    //Start Plugin Functions here!
+}
+
+if(class_exists('UserTablePlugin')){
+    $PluginUsers = new UserTablePlugin();
+}
