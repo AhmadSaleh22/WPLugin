@@ -35,8 +35,30 @@ defined('ABSPATH') or die('Hi this Page is Secured please try to define your Ide
 
 class UserTablePlugin{
     //Start Plugin Functions here!
+    function activate (){
+        // generated a Custom Post type
+        //flush rewrite rules
+    }
+    
+    function deactivate(){
+        //flush rewrite rules
+    }
+
+    function uninstall(){
+        //delete CPT
+    }
+
 }
 
 if(class_exists('UserTablePlugin')){
     $PluginUsers = new UserTablePlugin();
 }
+
+//activation function call
+register_activation_hook(__FILE__, array($PluginUsers,'activate'));
+
+//deactivation function call
+register_activation_hook(__FILE__, array($PluginUsers,'deactivate'));
+
+//uninstalling function call
+register_activation_hook(__FILE__, array($PluginUsers,'uninstall'));
