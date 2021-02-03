@@ -34,18 +34,28 @@
 defined('ABSPATH') or die('Hi this Page is Secured please try to define your Identity');
 
 class UserTablePlugin{
+
     //Start Plugin Functions here!
+    function __construct(){
+        add_action('init',array($this,'custom_post_type'))
+    }
     function activate (){
         // generated a Custom Post type
+        $this->custom_post_type();
         //flush rewrite rules
+        flush_rewrite_rules();
     }
     
     function deactivate(){
         //flush rewrite rules
+        flush_rewrite_rules();
     }
 
     function uninstall(){
         //delete CPT
+    }
+    function custom_post_type(){
+        register_post_type('tables',['public'=>true, 'label' => 'tables']);
     }
 
 }
@@ -58,7 +68,6 @@ if(class_exists('UserTablePlugin')){
 register_activation_hook(__FILE__, array($PluginUsers,'activate'));
 
 //deactivation function call
-register_activation_hook(__FILE__, array($PluginUsers,'deactivate'));
+register_deactivation_hook(__FILE__, array($PluginUsers,'deactivate'));
 
 //uninstalling function call
-register_activation_hook(__FILE__, array($PluginUsers,'uninstall'));
