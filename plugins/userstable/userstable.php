@@ -60,11 +60,9 @@ class UserTablePlugin{
                 </td>
             </tr>
             <?php }
-        add_action('init',array($this,'custom_post_type'))
     }
     function activate (){
         // generated a Custom Post type
-        $this->custom_post_type();
         //flush rewrite rules
         flush_rewrite_rules();
     }
@@ -76,9 +74,6 @@ class UserTablePlugin{
 
     function uninstall(){
         //delete CPT
-    }
-    function custom_post_type(){
-        register_post_type('tables',['public'=>true, 'label' => 'tables']);
     }
 
 }
